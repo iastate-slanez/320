@@ -1,0 +1,109 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The Number Guessing Game</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body>
+  <script >
+  
+
+  var guessRight =false;
+  var guess=-1;
+  var count=0;
+  var highestGuess=100;
+  var lowestGuess=0;
+  while(guessRight==false){
+  //get new guess 
+  count++;
+  
+  //first guess
+  if(count==1){
+      guess=Math.floor((Math.random() * 100) + 1);
+	  
+	  //restrict search radius
+	    if (confirm("Is your number "+guess.toString()+"?")) {
+   guessRight = true;
+} else {
+var text;
+var num = prompt("Is your number greater(>) or less than(<) "+guess.toString());
+switch(num) {
+  case ">":
+  //the number is greater than the guess
+  lowestGuess=guess;
+   
+    
+ 
+    break;
+  case "<":
+ //the number is less than the guess
+  highestGuess=guess;
+
+    break;
+  default:
+    text = "Invalid text";
+    break;
+}
+
+
+
+}
+	
+  
+  }else{
+  
+  guess= randomIntFromInterval(lowestGuess,highestGuess)
+    if (confirm("Is your number "+guess.toString()+"?")) {
+   guessRight = true;
+} else {
+
+var text;
+var num = prompt("Is your number greater(>) or less than(<) "+guess.toString());
+switch(num) {
+  case ">":
+  //the number is greater than the guess
+  
+  
+  lowestGuess=guess;
+ 
+    break;
+  case "<":
+ //the number is less than the guess
+
+ highestGuess=guess;
+    break;
+  default:
+    text = "Invalid text";
+    break;
+}
+
+
+
+}
+}
+//ask user if guess is correct
+
+  alert("Looking between "+lowestGuess+" "+highestGuess)
+
+  
+
+  //guess is correct
+ // guessRight=true;
+  
+  }
+  function randomIntFromInterval(min,max) // min and max included
+{
+    return Math.floor(Math.random()*(max-min+1)+min);
+}
+  
+  </script>
+<h1>I Win!</h1>
+</html>
